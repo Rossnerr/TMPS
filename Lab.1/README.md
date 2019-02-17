@@ -33,3 +33,7 @@ I have implemented the Builder Pattern while creating the objects of the Car typ
 
 The Prototype Pattern was used in the process of creating the Driver objects. This approach allows me to create an object by cloning an existing one. This pattern is used when creation of object directly is costly. Its implementation requires a prototype interface IDriver and it is implemented by the Driver class which has a method Clone() that returns a copy of the current object.
 
+I have used the Factory Method Pattern in the Race class which should be seen as super class with multiple sub-classes. Its subclasses are GrandPrixRace and FriendlyRace. Based on the given input, it will return one of the sub-class. This pattern take out the responsibility of instantiation of a class from client program.
+
+### Conclusion
+This laboratory served as a good initialization in the Creational Design Patterns. I have understand what a design pattern is and what it is good for. Also I have noticed that there are several types of the creational pattern, each of them having its own purpose. The real power of the Design Pattern can be felt when combining them together.
