@@ -14,7 +14,7 @@ public class Main {
 
         DriverFactory driverFactory = (DriverFactory) object.getDriverFactory();
 
-        RaceFactory raceFactory = new RaceFactory();
+        RaceFactory raceFactory = RaceFactory.getInstance();
 
         Car car = carFactory.CreateCar("Mercedes");
 
