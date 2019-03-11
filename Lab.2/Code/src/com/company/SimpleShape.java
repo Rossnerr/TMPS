@@ -1,5 +1,5 @@
 package com.company;
 
-public interface Shape {
+public interface SimpleShape {
     void draw(int x, int y, int z, int j);
 }

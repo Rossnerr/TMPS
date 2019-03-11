@@ -1,9 +1,9 @@
 package com.company;
 
-public class LineAdapter implements Shape {
-    private Line adaptee;
+public class LineAdapter implements SimpleShape {
+    private SimpleShape adaptee;
 
-    public LineAdapter(Line line){
+    public LineAdapter(SimpleShape line){
         this.adaptee = line;
     }
 

@@ -1,9 +1,9 @@
 package com.company;
 
-public class RectangleAdapter implements Shape {
-    private Rectangle adaptee;
+public class RectangleAdapter implements SimpleShape {
+    private SimpleShape adaptee;
 
-    public RectangleAdapter(Rectangle rectangle){
+    public RectangleAdapter(SimpleShape rectangle){
         this.adaptee = rectangle;
     }
 

@@ -1,32 +1,30 @@
 package com.company.Composite;
 
-import com.company.Shape;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleShape{
     private String name;
-    private List<Shape> simpleShapes;
+    private List<com.company.SimpleShape> simpleSimpleShapes;
 
     public SimpleShape(String name){
         this.name = name;
-        simpleShapes = new ArrayList<Shape>();
+        simpleSimpleShapes = new ArrayList<com.company.SimpleShape>();
     }
 
-    public void addSimpleShape (Shape ss){
-        simpleShapes.add(ss);
+    public void addSimpleShape (com.company.SimpleShape ss){
+        simpleSimpleShapes.add(ss);
     }
 
-    public void removeSimpleShapes (Shape ss){
-        simpleShapes.remove(ss);
+    public void removeSimpleShapes (com.company.SimpleShape ss){
+        simpleSimpleShapes.remove(ss);
     }
 
-    public List<Shape> getSimpleShapes(){
-        return simpleShapes;
+    public List<com.company.SimpleShape> getSimpleSimpleShapes(){
+        return simpleSimpleShapes;
     }
 
     public String toString(){
-        return ("Simple Shape : " + name);
+        return ("Simple SimpleShape : " + name);
     }
 }

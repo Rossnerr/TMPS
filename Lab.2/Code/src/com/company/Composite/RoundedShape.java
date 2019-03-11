@@ -1,32 +1,32 @@
 package com.company.Composite;
 
-import com.company.Shape;
+import com.company.SimpleShape;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RoundedShape{
     private String name;
-    private List<Shape> roundedShapes;
+    private List<SimpleShape> roundedSimpleShapes;
 
     public RoundedShape(String name){
         this.name = name;
-        roundedShapes = new ArrayList<Shape>();
+        roundedSimpleShapes = new ArrayList<SimpleShape>();
     }
 
-    public void addRoundedShape (Shape rs){
-        roundedShapes.add(rs);
+    public void addRoundedShape (SimpleShape rs){
+        roundedSimpleShapes.add(rs);
     }
 
-    public void removeRoundedShape (Shape rs){
-        roundedShapes.remove(rs);
+    public void removeRoundedShape (SimpleShape rs){
+        roundedSimpleShapes.remove(rs);
     }
 
-    public List<Shape> getRoundedShapes(){
-        return roundedShapes;
+    public List<SimpleShape> getRoundedSimpleShapes(){
+        return roundedSimpleShapes;
     }
 
     public String toString(){
-        return ("Rounded Shape : " + name);
+        return ("Rounded SimpleShape : " + name);
     }
 }
