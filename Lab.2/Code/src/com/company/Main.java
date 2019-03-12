@@ -1,36 +1,31 @@
 package com.company;
 
-import com.company.Composite.RoundedShape;
+import com.company.Adapter.LineAdapter;
+import com.company.Adapter.RectangleAdapter;
+import com.company.Bridge.RedCircle;
+import com.company.Composite.RoundedShapeComposite;
+import com.company.Composite.SimpleShapeComposite;
+import com.company.Decorator.RedSimpleShapeDecorator;
+import com.company.Flyweight.CircleFactory;
+import com.company.RoundedShapes.RoundedShape;
+import com.company.SimpleShapes.Line;
+import com.company.SimpleShapes.Rectangle;
+import com.company.SimpleShapes.SimpleShape;
 
 public class Main {
 
     public static void main(String[] args) {
-        RoundedShape roundedShape = new RoundedShape("Rounded SimpleShape");
-        com.company.Composite.SimpleShape simpleShape = new com.company.Composite.SimpleShape("Simple SimpleShape");
+        int x1 = 10, y1 = 10; //first point
+        int x2 = 30, y2 = 30; //second point
 
-//        RoundedShape circle = new RoundedShape("Circle");
-//        RoundedShape ellipse = new RoundedShape("Elippse");
-//        SimpleShape square = new SimpleShape("Square");
-//        SimpleShape rectangle = new SimpleShape("Rectangle");
-//
-//        roundedShape.addRoundedShape(circle);
-//        roundedShape.addRoundedShape(ellipse);
-//        simpleShape.addSimpleShape(square);
-//        simpleShape.addSimpleShape(rectangle);
+        RoundedShapeComposite roundedShapeComposite = new RoundedShapeComposite("Rounded ShapeComposite");
+        SimpleShapeComposite simpleShapeComposite = new SimpleShapeComposite("Simple ShapeComposite");
 
         RectangleAdapter rectangle = new RectangleAdapter(new Rectangle());
         RectangleAdapter redRectangle = new RectangleAdapter(new RedSimpleShapeDecorator(new Rectangle()));
 
         LineAdapter line = new LineAdapter(new Line());
         LineAdapter redLine = new LineAdapter(new RedSimpleShapeDecorator(new Line()));
-
-        com.company.RoundedShape redCircle = new Circle(10, 10, 2, new RedCircle());
-
-        Circle circle = (Circle)CircleFactory.getCircle(10);
-        Circle circle1 = (Circle) CircleFactory.getCircle(10);
-
-        int x1 = 10, y1 = 10;
-        int x2 = 30, y2 = 30;
 
         rectangle.draw(x1, y1, x2, y2);
         System.out.println("----------------------------------");
@@ -44,28 +39,44 @@ public class Main {
         redLine.draw(x1, y1, x2, y2);
         System.out.println("----------------------------------");
 
-        simpleShape.addSimpleShape(rectangle);
-        simpleShape.addSimpleShape(redRectangle);
+        RoundedShape circle1Radius2 = CircleFactory.getCircle(2, new RedCircle());
+        circle1Radius2.draw();
 
-        simpleShape.addSimpleShape(line);
-        simpleShape.addSimpleShape(redLine);
+        System.out.println("----------------------------------");
 
-        System.out.println(roundedShape);
-        System.out.println(simpleShape);
+        RoundedShape circle2Radius2 = CircleFactory.getCircle(2, new RedCircle());
+        circle2Radius2.draw();
 
-//        for(RoundedShape rs : roundedShape.getRoundedSimpleShapes()){
-//            System.out.println(rs);
-//        }
+        System.out.println("----------------------------------");
 
-        for(SimpleShape ss : simpleShape.getSimpleSimpleShapes()){
-            System.out.print("Simple SimpleShape: ");
+        RoundedShape circleRadius4 = CircleFactory.getCircle(4, new RedCircle());
+        circleRadius4.draw();
+
+        System.out.println("----------------------------------");
+
+        simpleShapeComposite.addSimpleShape(rectangle);
+        simpleShapeComposite.addSimpleShape(redRectangle);
+
+        simpleShapeComposite.addSimpleShape(line);
+        simpleShapeComposite.addSimpleShape(redLine);
+
+        roundedShapeComposite.addRoundedShape(circle1Radius2);
+        roundedShapeComposite.addRoundedShape(circle2Radius2);
+        roundedShapeComposite.addRoundedShape(circleRadius4);
+
+        System.out.println(roundedShapeComposite);
+        System.out.println(simpleShapeComposite);
+
+        for(SimpleShape ss : simpleShapeComposite.getSimpleSimpleShapes()){
+            System.out.print("Simple ShapeComposite: ");
             System.out.println(ss);
         }
 
         System.out.println("-----------------------------------");
 
-        redCircle.draw();
-        circle.draw();
-        circle1.draw();
+        for(RoundedShape rs : roundedShapeComposite.getRoundedSimpleShapes()){
+            System.out.print("Rounded ShapeComposite: ");
+            System.out.println(rs);
+        }
     }
 }
